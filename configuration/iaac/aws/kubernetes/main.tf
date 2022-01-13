@@ -3,7 +3,7 @@
 #}
 
 module "eks" {
-  source                                   = "git@bitbucket.org:banco_ripley/br-eks.git"
+  source                                   = "./modules/br-eks"
   project                                  = var.project
   owner                                    = var.owner
   cost_center                              = var.cost_center
@@ -36,7 +36,7 @@ data "null_data_source" "wait_for_cluster_and_kubernetes_configmap" {
 }
 
 module "node_group" {
-  source                         = "git@bitbucket.org:banco_ripley/br-eks-node-group.git"
+  source                         = "./modules/br-eks-node-group"
   project                        = var.project
   cost_center                    = var.cost_center
   subsidiary                     = var.subsidiary
